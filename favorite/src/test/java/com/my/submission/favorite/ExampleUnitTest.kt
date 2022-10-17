@@ -1,4 +1,4 @@
-package com.dicoding.tourismapp.maps
+package com.my.submission.favorite
 
 import org.junit.Test
 

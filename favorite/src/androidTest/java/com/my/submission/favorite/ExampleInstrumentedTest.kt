@@ -1,4 +1,4 @@
-package com.dicoding.tourismapp.maps
+package com.my.submission.favorite
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
