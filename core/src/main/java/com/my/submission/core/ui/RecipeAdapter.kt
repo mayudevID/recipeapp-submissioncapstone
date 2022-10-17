@@ -21,12 +21,6 @@ class RecipeAdapter : RecyclerView.Adapter<RecipeAdapter.ListViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun cleanList() {
-        val size: Int = listData.size
-        listData.clear()
-        notifyItemRangeRemoved(0, size)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_recipe, parent, false))
 

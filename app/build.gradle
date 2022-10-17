@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.my.submission"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -22,7 +22,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,6 +42,7 @@ android {
         viewBinding = true
     }
     dynamicFeatures = [':favorite']
+    namespace 'com.my.submission'
 }
 
 dependencies {

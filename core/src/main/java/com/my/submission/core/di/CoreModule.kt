@@ -8,6 +8,9 @@ import com.my.submission.core.data.source.remote.RemoteDataSource
 import com.my.submission.core.data.source.remote.network.ApiService
 import com.my.submission.core.domain.repository.IRecipeRepository
 import com.my.submission.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -19,19 +22,28 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<RecipeDatabase>().recipeDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("dicoding".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             RecipeDatabase::class.java, "Recipe.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
 val networkModule = module {
     single {
+        val hostname = "masak-apa-tomorisakura.vercel.app"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/fvIBzcALi+g/ONr6djc9/u++uqnGJ8yELPkcj3x7hjo=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
     single {

@@ -1,6 +1,5 @@
 package com.my.submission.core.domain.usecase
 
-import com.my.submission.core.domain.model.DetailRecipe
 import com.my.submission.core.domain.model.Recipe
 import com.my.submission.core.domain.repository.IRecipeRepository
 

@@ -52,7 +52,7 @@ object DataMapper {
 
     )
 
-    fun resultsConvert(input: ResultsResponse) = Results(
+    private fun resultsConvert(input: ResultsResponse) = Results(
         times = input.times ?: "NULL",
         difficulty = input.difficulty ?: "NULL",
         servings = input.servings ?: "NULL",
@@ -65,12 +65,12 @@ object DataMapper {
         desc = input.desc ?: "NULL",
     )
 
-    fun authorConvert(input: AuthorResponse) =  Author(
+    private fun authorConvert(input: AuthorResponse) =  Author(
         datePublished = input.datePublished ?: "NULL",
         user = input.user ?: "NULL",
     )
 
-    fun needItemItemConvert(input: List<NeedItemItemResponse?>): List<NeedItemItem> {
+    private fun needItemItemConvert(input: List<NeedItemItemResponse?>): List<NeedItemItem> {
         val data = ArrayList<NeedItemItem>()
         input.map {
             val dataItem = NeedItemItem(
@@ -82,7 +82,7 @@ object DataMapper {
         return data.toList()
     }
 
-    fun listStringConvert(input: List<String?>) : List<String> {
+    private fun listStringConvert(input: List<String?>) : List<String> {
         val data = ArrayList<String>()
         input.map {
             data.add(it ?: "No data")

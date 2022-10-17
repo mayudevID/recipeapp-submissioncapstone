@@ -8,8 +8,8 @@ import com.bumptech.glide.Glide
 import com.my.submission.core.domain.model.Recipe
 import com.my.submission.R
 import com.my.submission.core.data.Resource
-import com.my.submission.core.domain.model.Results
 import com.my.submission.databinding.ActivityDetailRecipeBinding
+import com.my.submission.home.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailRecipeActivity : AppCompatActivity() {
@@ -18,8 +18,8 @@ class DetailRecipeActivity : AppCompatActivity() {
         const val EXTRA_DATA = "extra_data"
     }
 
-    private val detailRecipeViewModel: DetailRecipeViewModel by viewModel()
     private lateinit var binding: ActivityDetailRecipeBinding
+    private val detailRecipeViewModel: DetailRecipeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

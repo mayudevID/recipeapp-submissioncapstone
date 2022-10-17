@@ -1,7 +1,6 @@
 package com.my.submission.core.data.source.local.entity
 
 import androidx.room.Entity
-import androidx.annotation.NonNull
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "recipe")

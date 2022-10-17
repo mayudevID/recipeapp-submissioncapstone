@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.my.submission.favorite">
+    xmlns:dist="http://schemas.android.com/apk/distribution">
 
     <dist:module
         dist:instant="false"
@@ -15,7 +14,7 @@
 
     <application>
         <activity
-            android:name=".FavoriteActivity"
+            android:name="com.my.submission.favorite.FavoriteActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
