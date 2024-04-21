@@ -8,7 +8,7 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
     testImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
     implementation "androidx.multidex:multidex:$multidex_version"
 
     implementation "androidx.cardview:cardview:$cardview_version"
@@ -18,16 +18,16 @@ dependencies {
 
     //koin
     implementation "io.insert-koin:koin-core:$koin_version"
-    testImplementation "io.insert-koin:koin-test:$koin_version"
+    testImplementation "io.insert-koin:koin-test:3.5.6"
     implementation "io.insert-koin:koin-android:$koin_android_version"
 
     implementation "io.insert-koin:koin-android-compat:$koin_android_version"
     implementation "io.insert-koin:koin-androidx-workmanager:$koin_android_version"
     implementation "io.insert-koin:koin-androidx-navigation:$koin_android_version"
 
-    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0")
+    kapt('org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0')
 
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
     implementation "net.zetetic:android-database-sqlcipher:4.4.0"
-    implementation "androidx.sqlite:sqlite-ktx:2.2.0"
+    implementation 'androidx.sqlite:sqlite-ktx:2.4.0'
 }
